@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby 
+
+$LOAD_PATH << "../lib"
+require 'ronin/calendar'
+
+calendar = Ronin::Calendar.new()
+
+puts "My calendar file is:" 
+puts calendar
+
+puts "My calendar items are:"
+puts calendar.events
+
+
+puts "My current events are:"
+# TODO Use interesing language here "for 2 days" or "for 2 weeks"
+puts calendar.events( { :limit => 10 } )
+
+# TODO Use interesing language here "for 2 days" or "for 2 weeks"
+puts "My current events are:"
+puts calendar.events( { :limit => 2 } )
+
+puts "My current events are:"
+puts calendar.events( { :limit => 2, :from => Date.today } )
+
+puts "My current events are:"
+puts calendar.events( { :limit => 2, :from => Date.today, :till => Date.today + 30 } )
